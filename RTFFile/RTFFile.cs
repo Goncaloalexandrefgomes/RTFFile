@@ -17,6 +17,7 @@ namespace RTFFile
         {
             get
             {
+                _texto = "";
                 _texto = File.ReadAllText(_path);
                 return _texto;
             }
