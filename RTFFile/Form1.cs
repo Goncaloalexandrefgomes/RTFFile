@@ -21,12 +21,12 @@ namespace RTFFile
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            richTextBox1.Text = MTexto.Texto;
+            MTexto.Texto = richTextBox1.Text = "";
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = MTexto.Texto;
+            MTexto.Texto = richTextBox1.Text;
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -36,7 +36,8 @@ namespace RTFFile
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
+            MTexto.Texto = richTextBox1.Text;
+            MTexto.Guardar();
         }
     }
 }
