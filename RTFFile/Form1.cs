@@ -17,27 +17,36 @@ namespace RTFFile
             InitializeComponent();
         }
 
-        RTFFile MTexto = new RTFFile(); 
+        private RTFFile texto = new RTFFile();
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Abrir_Click(object sender, EventArgs e)
         {
-            MTexto.Texto = richTextBox1.Text = "";
+            richTextBox1.Text = texto.Abrir;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Eliminar_Click(object sender, EventArgs e)
         {
-            MTexto.Texto = richTextBox1.Text;
+            richTextBox1.Text = texto.Eliminar();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Guardar_Click(object sender, EventArgs e)
         {
-            MTexto.Texto = richTextBox1.Text = ""; 
+            texto.Guardar(richTextBox1.Text);
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void Minusculas_Click(object sender, EventArgs e)
         {
-            MTexto.Texto = richTextBox1.Text;
-            MTexto.Guardar();
+            richTextBox1.Text = texto.Minusculas(richTextBox1.Text);
+        }
+
+        private void Maiusculas_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = texto.Maiusculas(richTextBox1.Text);
+        }
+
+        private void Iniciais_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = texto.Iniciais(richTextBox1.Text);
         }
     }
 }

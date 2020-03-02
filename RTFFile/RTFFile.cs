@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -10,23 +6,48 @@ namespace RTFFile
 {
     class RTFFile
     {
-        public string _path = Application.StartupPath + "\\Resources\\poema.txt";
-        public string _texto;
+        private string _path = Application.StartupPath + "\\Resources\\poema.txt";
+        private string _texto;
 
-        public string Texto
+        public string Abrir
         {
             get
             {
-                _texto = "";
                 _texto = File.ReadAllText(_path);
                 return _texto;
             }
-            set { _texto = value; }
         }
 
-        public void Guardar()
+        public string Eliminar()
         {
+            _texto = "";
+            return _texto;
+        }
+
+        public void Guardar(string valor)
+        {
+            _texto = valor;
             File.WriteAllText(_path, _texto);
         }
+
+        public string Maiusculas(string valor)
+        {
+            _texto = valor.ToUpper();
+            return _texto;
+        }
+
+        public string Minusculas(string valor)
+        {
+            _texto = valor.ToLower();
+            return _texto;
+        }
+
+        public string Iniciais(string valor)
+        {
+            valor = valor.ToLower();
+            _texto = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(valor);
+            return _texto;
+        }
+
     }
 }
